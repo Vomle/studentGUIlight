@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import pandas as pd
 
+# Create executable: pyinstaller --onefile -w --icon=froe.ico studentGUI.py
 # Define theme
 sg.theme('DarkAmber')  # Add a touch of color
 
@@ -14,7 +15,7 @@ def calculateStudentDifference(UNOPath, fakturaPath):
         dfUNO = pd.read_excel(UNOPath)
 
         vareNrListFaktura = dfFaktura['VareNr'].tolist()
-        vareNrListUNO = dfUNO['Varenr.'].tolist()
+        vareNrListUNO = dfUNO['Varenr'].tolist()
 
         same_values = list(set(vareNrListFaktura) & set(vareNrListUNO))
         onlyInUNO = list(set(vareNrListUNO) - set(vareNrListFaktura))
